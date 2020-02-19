@@ -1,0 +1,114 @@
+# Standards: 0.1
+---
+- name: Current detail scan
+  register: mdadm_arrays_current
+  when: mdadm_arrays | length > 0
+  changed_when: False
+  command: mdadm --detail --scan
+  tags:
+    - mdadm
+
+- name: Write config file
+  template:
+    src: config.j2
+    dest: /etc/mdadm/mdadm.conf
+  tags:
+    - mdadm
+
+- name: Check proc mdstat
+  loop: '{{ mdadm_arrays }}'
+  loop_control:
+    label: 'md{{ item.number }}'
+  when: mdadm_arrays | length > 0
+  register: mdadm_arrays_check
+  changed_when: False
+  failed_when: False
+  check_mode: False
+  shell: cat /proc/mdstat | grep md{{ item.number }}
+  tags:
+    - mdadm
+
+- name: Create array devices
+  loop: '{{ mdadm_arrays }}'
+  loop_control:
+    label: 'md{{ item.number }}'
+  when: mdadm_arrays | length > 0 and mdadm_arrays_check.results[0].rc != 0
+  register: mdadm_arrays_created
+  shell: yes | mdadm --create /dev/md/{{ item.number }} --level={{ item.level }} --raid-devices={{ item.devices | count }} {{ item.devices | join(' ') }}
+  tags:
+    - mdadm
+
+- name: Link array devices
+  loop: '{{ mdadm_arrays }}'
+  loop_control:
+    label: 'md{{ item.number }}'
+  when: mdadm_arrays | length > 0
+  file:
+    src: ../md{{ item.number }}
+    dest: /dev/md/{{ item.number }}
+    state: link
+    force: True
+  tags:
+    - mdadm
+
+- name: Updated detail scan
+  when: mdadm_arrays | length > 0
+  register: mdadm_arrays_details
+  changed_when: False
+  command: mdadm --detail --scan
+  tags:
+    - mdadm
+
+- name: Create defined filesystem
+  loop: '{{ mdadm_arrays }}'
+  loop_control:
+    label: 'md{{ item.number }}'
+  when: mdadm_arrays | length > 0 and item.filesystem | default(False)
+  filesystem:
+    fstype: '{{ item.filesystem }}'
+    dev: /dev/md/{{ item.number }}
+  tags:
+    - mdadm
+
+- name: Create defined mountpoint
+  loop: '{{ mdadm_arrays }}'
+  loop_control:
+    label: 'md{{ item.number }}'
+  when: mdadm_arrays | length > 0 and item.mountpoint | default(False)
+  file:
+    path: '{{ item.mountpoint }}'
+    state: directory
+  tags:
+    - mdadm
+
+- name: Mount defined mountpoint
+  loop: '{{ mdadm_arrays }}'
+  loop_control:
+    label: 'md{{ item.number }}'
+  when: mdadm_arrays | length > 0 and item.mountpoint | default(False)
+  mount:
+    name: '{{ item.mountpoint }}'
+    src: /dev/md/{{ item.number }}
+    fstype: '{{ item.filesystem }}'
+    state: mounted
+  tags:
+    - mdadm
+
+- name: Append config file
+  loop: '{{ mdadm_arrays_details.stdout_lines }}'
+  when: mdadm_arrays | length > 0 and mdadm_arrays_created.changed
+  lineinfile:
+    dest: /etc/mdadm/mdadm.conf
+    regexp: '^{{ item }}'
+    line: '{{ item }}'
+    state: present
+  tags:
+    - mdadm
+
+- name: Update initramfs
+  when: mdadm_arrays | length > 0 and mdadm_arrays_created.changed
+  command: update-initramfs -u
+  tags:
+    - mdadm
+
+...

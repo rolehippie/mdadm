@@ -1,0 +1,22 @@
+# Standards: 0.1
+---
+# @var mdadm_homehost:description: Hostname for the mdadm config
+mdadm_homehost: '{{ inventory_hostname }}'
+
+# @var mdadm_arrays:description: Mail address used for error messages
+mdadm_mailaddr: root
+
+# @var mdadm_arrays:description: List of docker registries to auto login
+# @var mdadm_arrays:example: >
+# mdadm_arrays:
+#   - number: 0
+#     level: 1
+#     filesystem: ext4
+#     mountpoint: /var/lib/foo
+#     devices:
+#       - /dev/sdb
+#       - /dev/sdc
+# @end
+mdadm_arrays: []
+
+...
