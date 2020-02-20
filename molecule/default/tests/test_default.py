@@ -8,5 +8,5 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 def test_mdadm_is_installed(host):
-    mdadm = host.package("mdadm")
-    assert mdadm.is_installed
+    pkg = host.package("mdadm")
+    assert pkg.is_installed
