@@ -1,7 +1,7 @@
 ---
 repository:
-  name: gai
-  description: Ansible role for gai
+  name: mdadm
+  description: Ansible role for mdadm
   topics: ansible, role, ansible-role
 
   private: false
