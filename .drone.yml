@@ -151,7 +151,6 @@ trigger:
   - refs/heads/master
   - refs/tags/**
   status:
-  - success
   - failure
 
 depends_on:
