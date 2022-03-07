@@ -20,6 +20,8 @@
 # None
 # @end
 galaxy_info:
+  role_name: mdadm
+  namespace: rolehippie
   author: Thomas Boerger
   description: Ansible role to install and configure mdadm RAID manager
   license: Apache-2.0
