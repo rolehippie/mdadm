@@ -21,6 +21,9 @@
   template:
     src: config.j2
     dest: /etc/mdadm/mdadm.conf
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
   tags:
     - mdadm
 
@@ -87,6 +90,9 @@
   file:
     path: "{{ item.mountpoint }}"
     state: directory
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('u=rwx,g=rx,o=rx') }}"
   tags:
     - mdadm
 
@@ -113,11 +119,13 @@
     state: present
   tags:
     - mdadm
+    - skip_ansible_later
 
 - name: Update initramfs
   when: mdadm_arrays | length > 0 and mdadm_arrays_created.changed
   command: update-initramfs -u
   tags:
     - mdadm
+    - skip_ansible_later
 
 ...
