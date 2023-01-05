@@ -3,6 +3,6 @@
 - name: Converge
   hosts: all
   roles:
-    - role: mdadm
+    - role: rolehippie.mdadm
 
 ...
