@@ -15,6 +15,7 @@ Building and improving this Ansible role have been sponsored by my current and p
 
 ## Table of content
 
+- [Requirements](#requirements)
 - [Default Variables](#default-variables)
   - [mdadm_arrays](#mdadm_arrays)
   - [mdadm_homehost](#mdadm_homehost)
@@ -25,6 +26,11 @@ Building and improving this Ansible role have been sponsored by my current and p
 - [Author](#author)
 
 ---
+
+## Requirements
+
+- Minimum Ansible version: `2.10`
+
 
 ## Default Variables
 
