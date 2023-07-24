@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/rolehippie/mdadm/compare/v1.0.0...v1.1.0) (2023-07-24)
+
+
+### Features
+
+* support optional create arguments ([f08f0ca](https://github.com/rolehippie/mdadm/commit/f08f0ca2e492d4d2f362505f92b6b4ca7171f84e))
+
 ## 1.0.0 (2023-01-05)
 
 
