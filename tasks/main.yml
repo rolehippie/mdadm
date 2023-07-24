@@ -46,7 +46,7 @@
     label: "md{{ item.number }}"
   when: mdadm_arrays | length > 0 and mdadm_arrays_check.results[0].rc != 0
   register: mdadm_arrays_created
-  shell: yes | mdadm --create /dev/md/{{ item.number }} --level={{ item.level }} --raid-devices={{ item.devices | count }} {{ item.devices | join(" ") }}
+  shell: yes | mdadm --create /dev/md/{{ item.number }} --level={{ item.level }} --raid-devices={{ item.devices | count }} {{ item.args | default([]) | join(' ') }} {{ item.devices | join(" ") }}
   tags:
     - mdadm
 

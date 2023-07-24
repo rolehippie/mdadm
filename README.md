@@ -55,6 +55,15 @@ mdadm_arrays:
     devices:
       - /dev/sdb
       - /dev/sdc
+  - number: 1
+    level: 1
+    filesystem: ext4
+    mountpoint: /var/lib/bar
+    args:
+      - --data-offset=1024
+    devices:
+      - /dev/sdd
+      - /dev/sde
 ```
 
 ### mdadm_homehost
