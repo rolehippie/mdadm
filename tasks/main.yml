@@ -2,7 +2,7 @@
 - name: Install required packages
   loop:
     - mdadm
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   tags:
@@ -12,12 +12,12 @@
   register: mdadm_arrays_current
   when: mdadm_arrays | length > 0
   changed_when: False
-  command: mdadm --detail --scan
+  ansible.builtin.command: mdadm --detail --scan
   tags:
     - mdadm
 
 - name: Write config file
-  template:
+  ansible.builtin.template:
     src: config.j2
     dest: /etc/mdadm/mdadm.conf
     owner: root
@@ -35,7 +35,7 @@
   changed_when: False
   failed_when: False
   check_mode: False
-  shell: cat /proc/mdstat | grep md{{ item.number }}
+  ansible.builtin.shell: cat /proc/mdstat | grep md{{ item.number }}
   tags:
     - mdadm
 
@@ -45,7 +45,7 @@
     label: "md{{ item.number }}"
   when: mdadm_arrays | length > 0 and mdadm_arrays_check.results[0].rc != 0
   register: mdadm_arrays_created
-  shell: yes | mdadm --create /dev/md/{{ item.number }} --level={{ item.level }} --raid-devices={{ item.devices | count }} {{ item.args | default([]) | join(' ') }} {{ item.devices | join(" ") }}
+  ansible.builtin.shell: yes | mdadm --create /dev/md/{{ item.number }} --level={{ item.level }} --raid-devices={{ item.devices | count }} {{ item.args | default([]) | join(' ') }} {{ item.devices | join(" ") }}
   tags:
     - mdadm
 
@@ -54,7 +54,7 @@
   loop_control:
     label: "md{{ item.number }}"
   when: mdadm_arrays | length > 0
-  file:
+  ansible.builtin.file:
     src: ../md{{ item.number }}
     dest: /dev/md/{{ item.number }}
     state: link
@@ -66,7 +66,7 @@
   when: mdadm_arrays | length > 0
   register: mdadm_arrays_details
   changed_when: False
-  command: mdadm --detail --scan
+  ansible.builtin.command: mdadm --detail --scan
   tags:
     - mdadm
 
@@ -75,7 +75,7 @@
   loop_control:
     label: "md{{ item.number }}"
   when: mdadm_arrays | length > 0 and item.filesystem | default(False)
-  filesystem:
+  community.general.filesystem:
     fstype: "{{ item.filesystem }}"
     dev: /dev/md/{{ item.number }}
   tags:
@@ -86,7 +86,7 @@
   loop_control:
     label: "md{{ item.number }}"
   when: mdadm_arrays | length > 0 and item.mountpoint | default(False)
-  file:
+  ansible.builtin.file:
     path: "{{ item.mountpoint }}"
     state: directory
     owner: "{{ item.owner | default('root') }}"
@@ -100,7 +100,7 @@
   loop_control:
     label: "md{{ item.number }}"
   when: mdadm_arrays | length > 0 and item.mountpoint | default(False)
-  mount:
+  ansible.posix.mount:
     name: "{{ item.mountpoint }}"
     src: /dev/md/{{ item.number }}
     fstype: "{{ item.filesystem }}"
@@ -122,7 +122,7 @@
 
 - name: Update initramfs
   when: mdadm_arrays | length > 0 and mdadm_arrays_created.changed
-  command: update-initramfs -u
+  ansible.builtin.command: update-initramfs -u
   tags:
     - mdadm
     - skip_ansible_later
