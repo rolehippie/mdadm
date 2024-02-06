@@ -15,7 +15,8 @@
 # Building and improving this Ansible role have been sponsored by my current and previous employers like **[Cloudpunks GmbH](https://cloudpunks.de)** and **[Proact Deutschland GmbH](https://www.proact.eu)**.
 # @end
 # @meta dependencies:value: >
-# None
+# [ansible.posix](https://github.com/ansible-collections/ansible.posix)
+# [community.general](https://github.com/ansible-collections/community.general)
 # @end
 galaxy_info:
   role_name: mdadm
