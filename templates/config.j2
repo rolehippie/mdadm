@@ -2,4 +2,4 @@ CREATE owner=root group=disk mode=0660 auto=yes
 HOMEHOST {{ mdadm_homehost }}
 MAILADDR {{ mdadm_mailaddr }}
 
-{{ mdadm_arrays_current.stdout | default("") }}
+{{ mdadm_arrays_current.stdout }}

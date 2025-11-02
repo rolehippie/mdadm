@@ -10,8 +10,9 @@
 
 - name: Current detail scan
   register: mdadm_arrays_current
-  when: mdadm_arrays | length > 0
-  changed_when: False
+  when:
+    - mdadm_arrays | length > 0
+  changed_when: false
   ansible.builtin.command: mdadm --detail --scan
   tags:
     - mdadm
@@ -30,12 +31,13 @@
   loop: "{{ mdadm_arrays }}"
   loop_control:
     label: "md{{ item.number }}"
-  when: mdadm_arrays | length > 0
+  when:
+    - mdadm_arrays | length > 0
   register: mdadm_arrays_check
-  changed_when: False
-  failed_when: False
-  check_mode: False
-  ansible.builtin.shell: cat /proc/mdstat | grep md{{ item.number }}
+  changed_when: false
+  failed_when: false
+  check_mode: false
+  ansible.builtin.command: grep md{{ item.number }} /proc/mdstat
   tags:
     - mdadm
 
@@ -43,9 +45,14 @@
   loop: "{{ mdadm_arrays }}"
   loop_control:
     label: "md{{ item.number }}"
-  when: mdadm_arrays | length > 0 and mdadm_arrays_check.results[0].rc != 0
+  when:
+    - mdadm_arrays | length > 0
+    - mdadm_arrays_check.results[0].rc != 0
   register: mdadm_arrays_created
-  ansible.builtin.shell: yes | mdadm --create /dev/md/{{ item.number }} --level={{ item.level }} --raid-devices={{ item.devices | count }} {{ item.args | default([]) | join(' ') }} {{ item.devices | join(" ") }}
+  changed_when: "'started' in mdadm_arrays_created.stdout"
+  ansible.builtin.shell: |
+    set -o pipefail
+    yes | mdadm --create /dev/md/{{ item.number }} --level={{ item.level }} --raid-devices={{ item.devices | count }} {{ '' if item.args is not defined else (item.args | join(' ')) }} {{ item.devices | join(' ') }}
   tags:
     - mdadm
 
@@ -53,19 +60,21 @@
   loop: "{{ mdadm_arrays }}"
   loop_control:
     label: "md{{ item.number }}"
-  when: mdadm_arrays | length > 0
+  when:
+    - mdadm_arrays | length > 0
   ansible.builtin.file:
     src: ../md{{ item.number }}
     dest: /dev/md/{{ item.number }}
     state: link
-    force: True
+    force: true
   tags:
     - mdadm
 
 - name: Updated detail scan
-  when: mdadm_arrays | length > 0
+  when:
+    - mdadm_arrays | length > 0
   register: mdadm_arrays_details
-  changed_when: False
+  changed_when: false
   ansible.builtin.command: mdadm --detail --scan
   tags:
     - mdadm
@@ -74,7 +83,9 @@
   loop: "{{ mdadm_arrays }}"
   loop_control:
     label: "md{{ item.number }}"
-  when: mdadm_arrays | length > 0 and item.filesystem | default(False)
+  when:
+    - mdadm_arrays | length > 0
+    - item.filesystem is defined
   community.general.filesystem:
     fstype: "{{ item.filesystem }}"
     dev: /dev/md/{{ item.number }}
@@ -85,13 +96,15 @@
   loop: "{{ mdadm_arrays }}"
   loop_control:
     label: "md{{ item.number }}"
-  when: mdadm_arrays | length > 0 and item.mountpoint | default(False)
+  when:
+    - mdadm_arrays | length > 0
+    - item.mountpoint is defined
   ansible.builtin.file:
     path: "{{ item.mountpoint }}"
     state: directory
-    owner: "{{ item.owner | default('root') }}"
-    group: "{{ item.group | default('root') }}"
-    mode: "{{ item.mode | default('u=rwx,g=rx,o=rx') }}"
+    owner: "{{ 'root' if item.owner is not defined else item.owner }}"
+    group: "{{ 'root' if item.group is not defined else item.group }}"
+    mode: "{{ 'u=rwx,g=rx,o=rx' if item.mode is not defined else item.mode }}"
   tags:
     - mdadm
 
@@ -99,7 +112,9 @@
   loop: "{{ mdadm_arrays }}"
   loop_control:
     label: "md{{ item.number }}"
-  when: mdadm_arrays | length > 0 and item.mountpoint | default(False)
+  when:
+    - mdadm_arrays | length > 0
+    - item.mountpoint is defined
   ansible.posix.mount:
     name: "{{ item.mountpoint }}"
     src: /dev/md/{{ item.number }}
@@ -110,21 +125,24 @@
 
 - name: Append config file
   loop: "{{ mdadm_arrays_details.stdout_lines }}"
-  when: mdadm_arrays | length > 0 and mdadm_arrays_created.changed
-  lineinfile:
+  when:
+    - mdadm_arrays | length > 0
+    - mdadm_arrays_created.changed
+  ansible.builtin.lineinfile:
     dest: /etc/mdadm/mdadm.conf
     regexp: "^{{ item }}"
     line: "{{ item }}"
     state: present
   tags:
     - mdadm
-    - skip_ansible_later
 
 - name: Update initramfs
-  when: mdadm_arrays | length > 0 and mdadm_arrays_created.changed
+  when:
+    - mdadm_arrays | length > 0
+    - mdadm_arrays_created.changed
+  changed_when: false
   ansible.builtin.command: update-initramfs -u
   tags:
     - mdadm
-    - skip_ansible_later
 
 ...
