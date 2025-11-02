@@ -1,6 +1,6 @@
 ---
 # @var mdadm_homehost:description: Hostname for the mdadm config
-mdadm_homehost: '{{ inventory_hostname }}'
+mdadm_homehost: "{{ inventory_hostname }}"
 
 # @var mdadm_arrays:description: Mail address used for error messages
 mdadm_mailaddr: root

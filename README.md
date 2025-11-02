@@ -1,4 +1,4 @@
-# workspace
+# mdadm
 
 [![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/mdadm)
 [![General Workflow](https://github.com/rolehippie/mdadm/actions/workflows/general.yml/badge.svg)](https://github.com/rolehippie/mdadm/actions/workflows/general.yml)
@@ -86,8 +86,6 @@ mdadm_mailaddr: root
 ## Discovered Tags
 
 **_mdadm_**
-
-**_skip_ansible_later_**
 
 ## Dependencies
 
