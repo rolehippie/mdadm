@@ -27,6 +27,7 @@ jobs:
         uses: ansible/ansible-lint@main
         with:
           requirements_file: requirements.yml
+          setup_python: true
 
   testing:
     runs-on: ubuntu-latest
@@ -46,7 +47,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6
         with:
-          python-version: 3.x
+          python-version: 3.13
 
       - name: Install dependencies
         run: pip3 install docker pytest-testinfra ansible molecule molecule-plugins[docker]
