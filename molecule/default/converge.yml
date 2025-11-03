@@ -1,27 +1,6 @@
 ---
 - name: Converge
   hosts: all
-  vars:
-    mdadm_arrays:
-      - number: 0
-        level: 1
-        devices:
-          - /dev/loop1.img
-          - /dev/loop2.img
-          - /dev/loop3.img
-  pre_tasks:
-    - name: Detach all loops
-      changed_when: false
-      ansible.builtin.command: "losetup --detach-all"
-    - name: Create disk files
-      loop: [1, 2, 3]
-      ansible.builtin.command: "fallocate -l 10M /tmp/disk{{ item }}.img"
-      args:
-        creates: "/tmp/disk{{ item }}.img"
-    - name: Setup loop devices
-      changed_when: false
-      loop: [1, 2, 3]
-      ansible.builtin.command: "losetup /dev/loop{{ item }} /tmp/disk{{ item }}.img"
   roles:
     - role: rolehippie.mdadm
 
