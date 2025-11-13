@@ -27,7 +27,6 @@ jobs:
         uses: ansible/ansible-lint@main
         with:
           requirements_file: requirements.yml
-          setup_python: true
 
   testing:
     runs-on: ubuntu-latest
@@ -41,6 +40,9 @@ jobs:
           - default
 
     steps:
+      - name: Drop hosted
+        run: rm -rf /opt/hostedtoolcache/Python
+
       - name: Checkout source
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
