@@ -1,5 +1,7 @@
 CREATE owner=root group=disk mode=0660 auto=yes
 HOMEHOST {{ mdadm_homehost }}
 MAILADDR {{ mdadm_mailaddr }}
+{% if mdadm_arrays | length > 0 %}
 
 {{ mdadm_arrays_current.stdout }}
+{% endif %}
