@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.0.0](https://github.com/rolehippie/mdadm/compare/v2.0.0...v3.0.0) (2025-11-17)
+
+
+### Features
+
+* apply new repo structure and update linting ([0f860e2](https://github.com/rolehippie/mdadm/commit/0f860e2306716413e1802069aeac6b69c3c3e038))
+* **major:** update dependency community.general to v12 ([#38](https://github.com/rolehippie/mdadm/issues/38)) ([555e77d](https://github.com/rolehippie/mdadm/commit/555e77d649ee787f8afc05cf2e8085ff61919339))
+
+
+### Bugfixes
+
+* check if any array is given ([38c08e6](https://github.com/rolehippie/mdadm/commit/38c08e6895e388e8e10a9c66bf51a8e065b76b81))
+
 ## [2.0.0](https://github.com/rolehippie/mdadm/compare/v1.1.0...v2.0.0) (2024-02-12)
 
 
