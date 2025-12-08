@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/rolehippie/mdadm/compare/v3.0.0...v3.1.0) (2025-12-08)
+
+
+### Features
+
+* **minor:** update dependency community.general to >=12.1.0,<12.2.0 ([#43](https://github.com/rolehippie/mdadm/issues/43)) ([8324556](https://github.com/rolehippie/mdadm/commit/8324556f5d8e026114d8dc3cd400f7e3c9de969e))
+
 ## [3.0.0](https://github.com/rolehippie/mdadm/compare/v2.0.0...v3.0.0) (2025-11-17)
 
 
