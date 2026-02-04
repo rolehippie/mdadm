@@ -17,6 +17,13 @@
   tags:
     - mdadm
 
+- name: Create config dir
+  ansible.builtin.file:
+    path: /etc/mdadm
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
 - name: Write config file
   ansible.builtin.template:
     src: config.j2
