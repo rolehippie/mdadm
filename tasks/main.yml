@@ -51,7 +51,6 @@
   register: mdadm_arrays_created
   changed_when: "'started' in mdadm_arrays_created.stdout"
   ansible.builtin.shell: |
-    set -o pipefail
     yes | mdadm --create /dev/md/{{ item.number }} --level={{ item.level }} --raid-devices={{ item.devices | count }} {{ '' if item.args is not defined else (item.args | join(' ')) }} {{ item.devices | join(' ') }}
   tags:
     - mdadm
