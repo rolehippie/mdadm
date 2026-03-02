@@ -1,4 +1,9 @@
 ---
+- name: Include platform variables
+  ansible.builtin.include_vars: "{{ ansible_os_family }}.yml"
+  tags:
+    - mdadm
+
 - name: Install required packages
   loop:
     - mdadm
@@ -20,7 +25,7 @@
 - name: Write config file
   ansible.builtin.template:
     src: config.j2
-    dest: /etc/mdadm/mdadm.conf
+    dest: "{{ mdadm_config_path }}"
     owner: root
     group: root
     mode: u=rw,g=r,o=r
@@ -129,7 +134,7 @@
     - mdadm_arrays | length > 0
     - mdadm_arrays_created.changed
   ansible.builtin.lineinfile:
-    dest: /etc/mdadm/mdadm.conf
+    dest: "{{ mdadm_config_path }}"
     regexp: "^{{ item }}"
     line: "{{ item }}"
     state: present
