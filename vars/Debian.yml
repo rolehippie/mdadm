@@ -1,0 +1,4 @@
+---
+mdadm_config_path: /etc/mdadm/mdadm.conf
+
+...
