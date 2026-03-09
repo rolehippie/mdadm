@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.5.0](https://github.com/rolehippie/mdadm/compare/v3.4.0...v3.5.0) (2026-03-09)
+
+### Features
+
+* integrate rocky/rhel support ([ae1861e](https://github.com/rolehippie/mdadm/commit/ae1861e68c96a229673e82bd739f57a0daed9030))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([687cdd4](https://github.com/rolehippie/mdadm/commit/687cdd4f5d2dc4330d3631f3d15eb1957e62dad1))
+* replace nixfmt package ([c40a332](https://github.com/rolehippie/mdadm/commit/c40a332ef71b6fad04831b8b633e95b5bd2b5fae))
+
 ## [3.4.0](https://github.com/rolehippie/mdadm/compare/v3.3.0...v3.4.0) (2026-03-02)
 
 ### Dependencies
