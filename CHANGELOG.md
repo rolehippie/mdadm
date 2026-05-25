@@ -1,5 +1,22 @@
 # Changelog
 
+## [4.0.0](https://github.com/rolehippie/mdadm/compare/v3.7.0...v4.0.0) (2026-05-25)
+
+### Features
+
+* avoid usage of yes and track created device ([a2b992f](https://github.com/rolehippie/mdadm/commit/a2b992f822337e5819f9446b002c51f88fb1fe64))
+
+### Dependencies
+
+* **major:** update dependency community.general to v13 ([#65](https://github.com/rolehippie/mdadm/issues/65)) ([9ab7592](https://github.com/rolehippie/mdadm/commit/9ab759292725d1e8575bbd6774b221cb20d9983d))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([c4613a5](https://github.com/rolehippie/mdadm/commit/c4613a581fb281942847b8ae6d9371b37c4974aa))
+* **flake:** updated lockfile [skip ci] ([de704ee](https://github.com/rolehippie/mdadm/commit/de704ee307fa05908e3c656bdeaf3fea7adef6dc))
+* **flake:** updated lockfile [skip ci] ([c17d805](https://github.com/rolehippie/mdadm/commit/c17d8057ade9de17657c058fcb06cfed47e2eef6))
+* **flake:** updated lockfile [skip ci] ([5bbb037](https://github.com/rolehippie/mdadm/commit/5bbb037a80b5a8fd822e21a1d0713cf07aed0858))
+
 ## [3.7.0](https://github.com/rolehippie/mdadm/compare/v3.6.0...v3.7.0) (2026-04-27)
 
 ### Dependencies
