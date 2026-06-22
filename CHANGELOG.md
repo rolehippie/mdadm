@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.1.0](https://github.com/rolehippie/mdadm/compare/v4.0.0...v4.1.0) (2026-06-22)
+
+### Dependencies
+
+* **minor:** update dependency community.general to >=13.1.0,<13.2.0 ([#66](https://github.com/rolehippie/mdadm/issues/66)) ([8c7e151](https://github.com/rolehippie/mdadm/commit/8c7e1511c6382b2e1f782f91ac0fb90e8d9d5404))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([aafc640](https://github.com/rolehippie/mdadm/commit/aafc64022b797cef34488950e9f0fd592a49b3c0))
+* **flake:** updated lockfile [skip ci] ([7588b30](https://github.com/rolehippie/mdadm/commit/7588b3083115a706ba6207289a2dfb9bc2b3c046))
+* **flake:** updated lockfile [skip ci] ([4bcf11c](https://github.com/rolehippie/mdadm/commit/4bcf11cc7b9fd7c0007a9e2c817d8a8ebebb4aa5))
+* **flake:** updated lockfile [skip ci] ([e830400](https://github.com/rolehippie/mdadm/commit/e830400c0c480e24e8bb799bcd79039a1297d3d9))
+
 ## [4.0.0](https://github.com/rolehippie/mdadm/compare/v3.7.0...v4.0.0) (2026-05-25)
 
 ### Features
