@@ -1,5 +1,7 @@
 # Changelog
 
+## [4.2.0](https://github.com/rolehippie/mdadm/compare/v4.1.0...v4.2.0) (2026-07-20)
+
 ## [4.1.0](https://github.com/rolehippie/mdadm/compare/v4.0.0...v4.1.0) (2026-06-22)
 
 ### Dependencies
