@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.0](https://github.com/rolehippie/mdadm/compare/v4.3.0...v4.4.0) (2026-08-10)
+
+### Dependencies
+
+* **minor:** update dependency pipx:ansible-doctor to v8.4.0 ([#73](https://github.com/rolehippie/mdadm/issues/73)) ([9c78948](https://github.com/rolehippie/mdadm/commit/9c78948d56f744537095afea6ab00a99ca09f2ca))
+* **patch:** update dependency python to v3.14.7 ([#71](https://github.com/rolehippie/mdadm/issues/71)) ([04b8bb9](https://github.com/rolehippie/mdadm/commit/04b8bb90bfa3a504183a441ddfbdc5da44172d3d))
+
 ## [4.3.0](https://github.com/rolehippie/mdadm/compare/v4.2.0...v4.3.0) (2026-07-27)
 
 ## [4.2.0](https://github.com/rolehippie/mdadm/compare/v4.1.0...v4.2.0) (2026-07-20)
