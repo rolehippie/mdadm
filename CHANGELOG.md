@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.5.0](https://github.com/rolehippie/mdadm/compare/v4.4.0...v4.5.0) (2026-08-17)
+
+### Dependencies
+
+* **minor:** update dependency community.general to >=13.3.0,<13.4.0 ([#75](https://github.com/rolehippie/mdadm/issues/75)) ([8717da6](https://github.com/rolehippie/mdadm/commit/8717da65daacffad0b122b92f342a45c36d9dc0a))
+* **minor:** update dependency pipx:ansible-lint to v26.8.0 ([#77](https://github.com/rolehippie/mdadm/issues/77)) ([a0cd30d](https://github.com/rolehippie/mdadm/commit/a0cd30da94207aa020902c55b503bf03f8ae9c40))
+* **minor:** update dependency pipx:molecule to v26.8.0 ([#78](https://github.com/rolehippie/mdadm/issues/78)) ([1713e15](https://github.com/rolehippie/mdadm/commit/1713e15ce31bdad2fe18ebcb1f6efde579bd30f3))
+* **patch:** update dependency pipx:ansible-core to v2.21.3 ([#74](https://github.com/rolehippie/mdadm/issues/74)) ([6a6cfe4](https://github.com/rolehippie/mdadm/commit/6a6cfe445a6db3566c2ad2518f126db5b9078f7a))
+* **patch:** update dependency pre-commit to v4.6.2 ([#76](https://github.com/rolehippie/mdadm/issues/76)) ([9f7e001](https://github.com/rolehippie/mdadm/commit/9f7e00117c6a612c590f5efd40f37c660b434101))
+
 ## [4.4.0](https://github.com/rolehippie/mdadm/compare/v4.3.0...v4.4.0) (2026-08-10)
 
 ### Dependencies
