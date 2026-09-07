@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.6.0](https://github.com/rolehippie/mdadm/compare/v4.5.1...v4.6.0) (2026-09-07)
+
+### Features
+
+* add separate requirements for molecule run ([9dc6e97](https://github.com/rolehippie/mdadm/commit/9dc6e97e34e1d962102c0f84d4d10d1d4c334b5d))
+* use new required facts as attributes ([0d9ef4e](https://github.com/rolehippie/mdadm/commit/0d9ef4efccca1b2627f9c355ca8771abfbbf91ba))
+
 ## [4.5.1](https://github.com/rolehippie/mdadm/compare/v4.5.0...v4.5.1) (2026-08-31)
 
 ### Dependencies
