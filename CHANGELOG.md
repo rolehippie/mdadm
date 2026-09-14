@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.7.0](https://github.com/rolehippie/mdadm/compare/v4.6.0...v4.7.0) (2026-09-14)
+
+### Dependencies
+
+* **minor:** update dependency community.general to >=13.4.0,<13.5.0 ([#80](https://github.com/rolehippie/mdadm/issues/80)) ([5bfcd6c](https://github.com/rolehippie/mdadm/commit/5bfcd6c5e24b8c5c1ca2df6ced89d7b896c39d30))
+* **mise:** update dependency pipx:ansible-core to v2.21.4 ([#81](https://github.com/rolehippie/mdadm/issues/81)) ([500a95c](https://github.com/rolehippie/mdadm/commit/500a95cc40b0245f745ec5347cb05ae05cb16ba0))
+* **mise:** update dependency prek to v0.5.3 ([#82](https://github.com/rolehippie/mdadm/issues/82)) ([15daa5d](https://github.com/rolehippie/mdadm/commit/15daa5d6794e3460330cfc7d0e1a4ec455894bde))
+
 ## [4.6.0](https://github.com/rolehippie/mdadm/compare/v4.5.1...v4.6.0) (2026-09-07)
 
 ### Features
