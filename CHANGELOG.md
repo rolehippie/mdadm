@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.8.0](https://github.com/rolehippie/mdadm/compare/v4.7.0...v4.8.0) (2026-10-12)
+
+### Dependencies
+
+* **minor:** update dependency community.general to >=13.5.0,<13.6.0 ([#91](https://github.com/rolehippie/mdadm/issues/91)) ([29f08d7](https://github.com/rolehippie/mdadm/commit/29f08d79eddece55e20e0718c367a133abe54c5b))
+* **mise:** update dependency pipx:ansible-core to v2.21.5 ([#89](https://github.com/rolehippie/mdadm/issues/89)) ([ee96c17](https://github.com/rolehippie/mdadm/commit/ee96c174dc8d042df91c442113fec0cd3962f9d7))
+* **mise:** update dependency pipx:ansible-doctor to v8.4.2 ([#83](https://github.com/rolehippie/mdadm/issues/83)) ([7d2d3fc](https://github.com/rolehippie/mdadm/commit/7d2d3fc075815243aed3a08cce2730cf8e496c41))
+* **mise:** update dependency pipx:ansible-doctor to v8.4.3 ([#90](https://github.com/rolehippie/mdadm/issues/90)) ([8e058f1](https://github.com/rolehippie/mdadm/commit/8e058f19f176b928fba767b67e2604ba24182213))
+* **mise:** update dependency pipx:ansible-lint to v26.10.0 ([#92](https://github.com/rolehippie/mdadm/issues/92)) ([cb3763f](https://github.com/rolehippie/mdadm/commit/cb3763f320856270334ea4bea7b69fc13ec8f03e))
+* **mise:** update dependency pipx:ansible-lint to v26.9.0 ([#84](https://github.com/rolehippie/mdadm/issues/84)) ([0e5161d](https://github.com/rolehippie/mdadm/commit/0e5161d2cfedae64a703b8ab599365a3d8d6111d))
+* **mise:** update dependency pipx:molecule to v26.10.0 ([#93](https://github.com/rolehippie/mdadm/issues/93)) ([11ec6a9](https://github.com/rolehippie/mdadm/commit/11ec6a96e817ede9f0a57aa4e58da0b8a187d8ed))
+* **mise:** update dependency pipx:molecule to v26.9.0 ([#85](https://github.com/rolehippie/mdadm/issues/85)) ([0b16cd7](https://github.com/rolehippie/mdadm/commit/0b16cd73d9b94dd4c0bfe7b156787c7a16682df4))
+* **mise:** update dependency prek to v0.5.4 ([#86](https://github.com/rolehippie/mdadm/issues/86)) ([0cd21e5](https://github.com/rolehippie/mdadm/commit/0cd21e5776e3460e9ed6e95bd922e1b908fe1d74))
+* **mise:** update dependency prek to v0.5.5 ([#88](https://github.com/rolehippie/mdadm/issues/88)) ([62ddc41](https://github.com/rolehippie/mdadm/commit/62ddc41dfaf51b12d6a14ff9fa9a658adee947fb))
+
 ## [4.7.0](https://github.com/rolehippie/mdadm/compare/v4.6.0...v4.7.0) (2026-09-14)
 
 ### Dependencies
