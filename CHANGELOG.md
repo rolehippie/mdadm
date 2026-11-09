@@ -1,5 +1,21 @@
 # Changelog
 
+## [5.0.0](https://github.com/rolehippie/mdadm/compare/v4.8.0...v5.0.0) (2026-11-09)
+
+### Dependencies
+
+* **major:** update dependency community.general to v14 ([#100](https://github.com/rolehippie/mdadm/issues/100)) ([b0c2378](https://github.com/rolehippie/mdadm/commit/b0c23783bc3588eee062821c40d1e28da9d6b946))
+* **mise:** update dependency pipx:ansible-core to v2.22.0 ([#99](https://github.com/rolehippie/mdadm/issues/99)) ([a643990](https://github.com/rolehippie/mdadm/commit/a6439906a4d906b1193bdd795cdc92e386d587ec))
+* **mise:** update dependency pipx:ansible-doctor to v8.4.4 ([#104](https://github.com/rolehippie/mdadm/issues/104)) ([37a0f68](https://github.com/rolehippie/mdadm/commit/37a0f6879b8e9afad1172d152f37c0000248f375))
+* **mise:** update dependency pipx:ansible-lint to v26.10.1 ([#94](https://github.com/rolehippie/mdadm/issues/94)) ([c32cdec](https://github.com/rolehippie/mdadm/commit/c32cdecc549395a5b806cab72a49ddb14e5d1c0b))
+* **mise:** update dependency pipx:ansible-lint to v26.11.0 ([#102](https://github.com/rolehippie/mdadm/issues/102)) ([43bccb7](https://github.com/rolehippie/mdadm/commit/43bccb791d59734d1fc25919a2c3970616e152da))
+* **mise:** update dependency pipx:molecule to v26.11.0 ([#103](https://github.com/rolehippie/mdadm/issues/103)) ([386bedc](https://github.com/rolehippie/mdadm/commit/386bedc10b12e6b12e3368520c42a8458d22fcbf))
+* **mise:** update dependency prek to v0.5.10 ([#101](https://github.com/rolehippie/mdadm/issues/101)) ([169a76d](https://github.com/rolehippie/mdadm/commit/169a76d5ea7c932166d40fd4afef80d8bf6d0645))
+* **mise:** update dependency prek to v0.5.6 ([#95](https://github.com/rolehippie/mdadm/issues/95)) ([d463406](https://github.com/rolehippie/mdadm/commit/d4634064e254fb7d24d3e63ff0026b8b85a29737))
+* **mise:** update dependency prek to v0.5.7 ([#96](https://github.com/rolehippie/mdadm/issues/96)) ([5896760](https://github.com/rolehippie/mdadm/commit/5896760778f02da08b77c56b09ea2bc09129b8a2))
+* **mise:** update dependency prek to v0.5.9 ([#98](https://github.com/rolehippie/mdadm/issues/98)) ([1d054a1](https://github.com/rolehippie/mdadm/commit/1d054a1848f078c8d609dea35b6e856b0a27fccd))
+* **mise:** update node.js to v26 ([#97](https://github.com/rolehippie/mdadm/issues/97)) ([e25c0a0](https://github.com/rolehippie/mdadm/commit/e25c0a0e38bb0daec9af30b26334680bbd8eea35))
+
 ## [4.8.0](https://github.com/rolehippie/mdadm/compare/v4.7.0...v4.8.0) (2026-10-12)
 
 ### Dependencies
